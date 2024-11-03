@@ -18,7 +18,7 @@ public class Main {
                 System.out.println("Enter a string:");
                 String str = sc.nextLine();
                 try {
-                    System.out.println(reverseString(str));
+                    System.out.println(StringUtils.reverseString(str));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -29,13 +29,13 @@ public class Main {
                     String str1 = sc.nextLine();
                     System.out.println("Enter a number:");
                     int shift = sc.nextInt();
-                    System.out.println(caesarCipher(str1, shift));
+                    System.out.println(StringUtils.caesarCipher(str1, shift));
                     break;
                     case 3:
                         System.out.println("Enter a string:");
                         String str2 = sc.nextLine();
                         try {
-                            System.out.println(toLowerCase(str2));
+                            System.out.println(StringUtils.toLowerCase(str2));
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -44,7 +44,7 @@ public class Main {
                             System.out.println("Enter a string:");
                             String str3 = sc.nextLine();
                             try {
-                                System.out.println(toUpperCase(str3));
+                                System.out.println(StringUtils.toUpperCase(str3));
                             } catch (Exception e) {
                                 System.out.println(e.getMessage());
                             }
@@ -52,59 +52,5 @@ public class Main {
                             default:
                                 break;
         }
-    }
-
-    public static String reverseString(String str) throws Exception {
-        String reversed = "";
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed += str.charAt(i);
-
-        }
-
-        if (str.equals(reversed)) {
-            throw new Exception("Strings cannot be equal.");
-        }
-
-        return reversed;
-    }
-
-    public static String caesarCipher(String str, int shift) {
-        StringBuffer result = new StringBuffer();
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            int charPosition = alphabet.indexOf(c);
-
-            if (charPosition < 0) {
-                result.append(c);
-            } else {
-                int newKey = (charPosition + shift) % alphabet.length();
-                char newValue = alphabet.charAt(newKey);
-                result.append(newValue);
-            }
-        }
-        return result.toString();
-    }
-
-    public static String toLowerCase(String str) throws Exception {
-        String newStr = str.toLowerCase();
-
-        if (str.equals(newStr)) {
-            throw new Exception("Strings cannot be equal.");
-        }
-
-        return newStr;
-    }
-
-    public static String toUpperCase(String str) throws Exception {
-        String newStr = str.toUpperCase();
-
-        if (str.equals(newStr)) {
-            throw new Exception("Strings cannot be equal.");
-        }
-
-        return newStr;
     }
 }
