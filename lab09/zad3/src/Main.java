@@ -9,6 +9,7 @@ public class Main {
         System.out.println("2. Encrypting strings using the Caesar cipher");
         System.out.println("3. Converting string to lowercase letters");
         System.out.println("4. Converting string to uppercase letters");
+        System.out.println("============");
 
         int choice = sc.nextInt();
         sc.nextLine();
